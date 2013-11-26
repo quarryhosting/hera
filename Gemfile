@@ -33,10 +33,12 @@ gem 'devise'
 # Make mocking easy.
 gem 'factory_girl_rails'
 
-group :test, :development do
+group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
   gem 'launchy'
+  gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
+  gem 'guard-rspec'
 end
 
 # Let's make frontend just a little easier.
