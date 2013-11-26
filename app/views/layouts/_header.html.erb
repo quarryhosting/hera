@@ -8,8 +8,18 @@
     <ul class="right button-group">
       <li><a href="/" class="button">Home</a></li>
       <li><a href="/pricing" class="button">Pricing</a></li>
-      <li><a href="#" class="button">Sign In</a></li>
-      <li><a href="#" class="button">Sign Up</a></li>
+
+      <% if user_signed_in? %>
+        <li><%= link_to "Edit Profile", edit_user_registration_path,
+          class: "button" %></li>
+        <li><%= link_to "Logout", destroy_user_session_path, method: :delete,
+          class: "button" %></li>
+      <% else %>
+        <li><%= link_to "Register", new_user_registration_path,
+          class: "button" %></li>
+        <li><%= link_to "Login", new_user_session_path,
+          class: "button" %></li>
+      <% end %>
     </ul>
   </div>
 </div>
