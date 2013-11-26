@@ -39,6 +39,7 @@ group :development, :test do
   gem 'launchy'
   gem 'rb-fsevent', require: false if RUBY_PLATFORM =~ /darwin/i
   gem 'guard-rspec'
+  gem 'guard-livereload'
 end
 
 # Let's make frontend just a little easier.
