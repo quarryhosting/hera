@@ -11,6 +11,30 @@ describe "Authentication" do
     it { should have_title("Register") }
   end
 
+  describe "register" do
+    before { visit new_user_registration_path }
+
+    describe "with invalid information" do
+      before { click_button "Register" }
+
+      it { should have_title("Register") }
+      it { should have_selector("div.alert-box.warning") }
+    end
+
+    describe "with valid information" do
+      let(:user) { FactoryGirl.attributes_for(:user) }
+      before do
+        fill_in "Email",                 with: user[:email].upcase
+        fill_in "Password",              with: user[:password]
+        fill_in "Password confirmation", with: user[:password]
+        click_button "Register"
+      end
+
+      it { should have_link("Logout",    href: destroy_user_session_path) }
+      it { should_not have_link("Login", href: new_user_session_path) }
+    end
+  end
+
   describe "login page" do
     before { visit new_user_session_path }
 
