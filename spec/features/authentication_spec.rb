@@ -14,14 +14,14 @@ describe "Authentication" do
   describe "register" do
     before { visit new_user_registration_path }
 
-    describe "with invalid information" do
+    context "with invalid information" do
       before { click_button "Register" }
 
       it { should have_title("Register") }
       it { should have_selector("div.alert-box.warning") }
     end
 
-    describe "with valid information" do
+    context "with valid information" do
       let(:user) { FactoryGirl.attributes_for(:user) }
       before do
         fill_in "Email",                 with: user[:email].upcase
@@ -45,14 +45,14 @@ describe "Authentication" do
   describe "login" do
     before { visit new_user_session_path }
 
-    describe "with invalid information" do
+    context "with invalid information" do
       before { click_button "Login" }
 
       it { should have_title("Login") }
       it { should have_selector("div.alert-box.warning") }
     end
 
-    describe "with valid information" do
+    context "with valid information" do
       let(:user) { FactoryGirl.create(:user) }
       before do
         fill_in "Email",    with: user.email.upcase
