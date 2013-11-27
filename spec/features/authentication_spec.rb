@@ -32,6 +32,7 @@ describe "Authentication" do
 
       it { should have_link("Logout",    href: destroy_user_session_path) }
       it { should_not have_link("Login", href: new_user_session_path) }
+      it { should have_content("User Profile") }
     end
   end
 

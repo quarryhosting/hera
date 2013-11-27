@@ -1,13 +1,20 @@
 Hera::Application.routes.draw do
+  get "users/show"
   devise_for :users, path_names: { sign_in: "login", sign_out: "logout",
                                    sign_up: "register" }
   get "/home", to: redirect('/')
+
+  authenticated :user do
+    root to: "users#show", as: :authenticated_root
+  end
 
   root to: 'pages#home'
 
   %w[home pricing terms_of_service].each do |page|
     get page, controller: "pages", action: page
   end
+
+  get "/users/:id", to: "users#show", as: :user
 
   # The priority is based upon order of creation: first created -> highest priority.
   # See how all your routes lay out with "rake routes".
