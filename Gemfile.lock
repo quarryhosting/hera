@@ -203,6 +203,7 @@ DEPENDENCIES
   jquery-rails
   launchy
   rails (= 4.0.0)
+  rb-fsevent
   rspec-rails
   sass-rails (~> 4.0.0)
   sdoc
