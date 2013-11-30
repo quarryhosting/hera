@@ -4,20 +4,12 @@
   <div class="large-4 columns">
     <h2>Login</h2>
 
-    <%= form_for(resource, :as => resource_name,
-                 :url => session_path(resource_name)) do |f| %>
-
-      <%= f.label :email %>
-      <%= f.email_field :email, :autofocus => true %>
-
-      <%= f.label :password %>
-      <%= f.password_field :password %>
-
-      <% if devise_mapping.rememberable? -%>
-        <div><%= f.check_box :remember_me %> <%= f.label :remember_me %></div>
-      <% end -%>
-
-      <%= f.submit "Login", class: "button" %>
+    <%= simple_form_for(resource, :as => resource_name,
+                        url: session_path(resource_name)) do |f| %>
+      <%= f.input :email, autofocus: true %>
+      <%= f.input :password, autofocus: true %>
+      <%= f.input :remember_me, as: :boolean if devise_mapping.rememberable? %>
+      <%= f.button :submit, "Login" %>
     <% end %>
 
     <%= render "devise/shared/links" %>

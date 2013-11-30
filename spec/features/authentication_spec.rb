@@ -18,7 +18,7 @@ describe "Authentication" do
       before { click_button "Register" }
 
       it { should have_title("Register") }
-      it { should have_selector("div.alert-box.warning") }
+      it { should have_selector("div.input.error") }
     end
 
     context "with valid information" do

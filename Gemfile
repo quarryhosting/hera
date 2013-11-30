@@ -33,6 +33,9 @@ gem 'devise'
 # Make mocking easy.
 gem 'factory_girl_rails'
 
+# Use simple_form for forms.
+gem 'simple_form'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
