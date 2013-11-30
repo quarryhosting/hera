@@ -65,6 +65,9 @@ GEM
       factory_girl (~> 4.3.0)
       railties (>= 3.0.0)
     ffi (1.9.3)
+    figaro (0.7.0)
+      bundler (~> 1.0)
+      rails (>= 3, < 5)
     formatador (0.2.4)
     foundation-rails (5.0.2.0)
       railties (>= 3.1.0)
@@ -201,6 +204,7 @@ DEPENDENCIES
   coffee-rails (~> 4.0.0)
   devise
   factory_girl_rails
+  figaro
   foundation-rails
   guard-livereload
   guard-rspec

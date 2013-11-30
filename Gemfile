@@ -36,6 +36,9 @@ gem 'factory_girl_rails'
 # Use simple_form for forms.
 gem 'simple_form'
 
+# Make application configuration less painful
+gem 'figaro'
+
 group :development, :test do
   gem 'rspec-rails'
   gem 'capybara'
